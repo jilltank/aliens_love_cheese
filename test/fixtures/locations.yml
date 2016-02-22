@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  city: MyString
+  state: MyString
+  latitude: 1.5
+  longitude: 1.5
+  nearest_meteorite1: 1
+  nacho1: 1
+  nearest_meteorite2: 1
+  nacho2: 1
+  nearest_meteorite3: 1
+  nacho3: 1
+
+two:
+  city: MyString
+  state: MyString
+  latitude: 1.5
+  longitude: 1.5
+  nearest_meteorite1: 1
+  nacho1: 1
+  nearest_meteorite2: 1
+  nacho2: 1
+  nearest_meteorite3: 1
+  nacho3: 1

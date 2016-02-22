@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  year: MyString
+  lat: 1.5
+  long: 1.5
+  nacho_id: 1
+
+two:
+  name: MyString
+  year: MyString
+  lat: 1.5
+  long: 1.5
+  nacho_id: 1

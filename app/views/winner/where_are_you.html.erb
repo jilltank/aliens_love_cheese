@@ -1,0 +1,15 @@
+<h1>Great Job!</h1>
+<div class="row">
+	<div class="col-md-6">
+		<div class="container">
+			<img src="<%= asset_path "satellite.png" %>" class="swing">
+			</img>
+		</div>
+	</div>
+	<div class="col-md-6">
+		<p>Do you want to see where we like to find nachos near you?</p>
+		<div class="field">
+			<p><%= text_field :city, nil, placeholder: "City?" %></p>
+			<p><%= text_field :state, nil, placeholder: "State?" %></p>
+			<p><%= submit_tag "Find Us!", class: "btn btn-success" %></p> 	
+		</div>
