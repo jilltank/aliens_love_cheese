@@ -8,11 +8,9 @@
 	<div class="col-md-4">
 		<div class="center">
 
-			<h2>The Nearest Spaceships to You</h2>
-				<% @spaceships.each do |s| %>
-					<p>Ship Name: <%= s.name %></p>
-					<p>Landed: <%= s.year %></p>
-				<% end %>
+			<h2>The Nearest Spaceship to You</h2>
+					<p>Ship Name: <%= @nearby_ship.name %></p>
+					<p>Landed: <%= @nearby_ship.year %></p>
 			</div>
 
 		</div>
@@ -23,14 +21,20 @@
 
 </div>
 
+<ul>
+	<li><%= @nacho_force_one["name"] %></li>
+	<li><%= @nacho_force_one["city"] %></li>
+</ul>
+
+
 	<script type="text/javascript">
 
 	$(document).ready(function (){
 		function initialize () {
 
 			var mapOptions = {
-				center: {lat: 33.784624, lng: -84.422030},
-				zoom: 5,
+				center: {lat: <%= @location.latitude %>, lng: <%= @location.longitude %> },
+				zoom: 10,
 				scrollwheel: false
 			};
 
@@ -38,23 +42,20 @@
 
 			var image = "<%= asset_path 'spaceship.png' %>"
 
-			<% @spaceships.each do |s| %>
-
 			var marker = new google.maps.Marker({
-				position: {lat: <%= s.lat.to_f %>, lng: <%= s.long.to_f %>},
+				position: {lat: <%= @nearby_ship.lat %>, lng: <%= @nearby_ship.long %>},
 				map: map,
-				title: "<%= s.name %>",
+				title: "<%= @nearby_ship.name %>",
 				icon: image,
 				animation: google.maps.Animation.BOUNCE
 			});
 
-			var contentString = "<h3><%= s.name %></h3>";
+			var contentString = "<h3><%= @nearby_ship.name %></h3>";
 			var infowindow = new google.maps.InfoWindow({content: contentString});
 			google.maps.event.addListener(marker, 'click', function() {
 				infowindow.open(map, marker);
 			});
 
-			<% end %>
 		}
 
 		google.maps.event.addDomListener(window, 'load', initialize);

@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
   get 'winner/where_are_you'
 
-  get 'winner/alien_nachos'
+  root 'winner#alien_nachos'
+  post 'alien_nachos' => 'winner#alien_nachos'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

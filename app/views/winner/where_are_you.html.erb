@@ -8,8 +8,18 @@
 	</div>
 	<div class="col-md-6">
 		<p>Do you want to see where we like to find nachos near you?</p>
-		<div class="field">
-			<p><%= text_field :city, nil, placeholder: "City?" %></p>
-			<p><%= text_field :state, nil, placeholder: "State?" %></p>
-			<p><%= submit_tag "Find Us!", class: "btn btn-success" %></p> 	
-		</div>
+		<%= form_tag(alien_nachos_path) do %>
+			<div class="form-group">
+				City: <br>
+				<%= text_field_tag :city %>
+			</div>
+			<div class="form-group">
+				State: <br>
+				<%= select_tag :state, options_for_select(@states), :prompt => "Select a State" %>
+			</div>
+			<br>
+			<div class="form-group">
+				<%= submit_tag "I'm here, where are you?", class: "btn btn-success" %>
+			</div>
+		<% end %>
+	</div>
