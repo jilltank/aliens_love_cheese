@@ -8,7 +8,7 @@
 	<div class="col-md-4">
 		<div class="center">
 
-			<h2>The Nearest Spaceship to You</h2>
+			<h2>The Nearest Spaceship to <%= "#{@location.city}" %></h2>
 					<p>Ship Name: <%= @nearby_ship.name %></p>
 					<p>Landed: <%= @nearby_ship.year %></p>
 			</div>
@@ -21,11 +21,6 @@
 
 </div>
 
-<ul>
-	<li><%= @nacho_force_one["name"] %></li>
-	<li><%= @nacho_force_one["city"] %></li>
-</ul>
-
 
 	<script type="text/javascript">
 
@@ -33,7 +28,7 @@
 		function initialize () {
 
 			var mapOptions = {
-				center: {lat: <%= @location.latitude %>, lng: <%= @location.longitude %> },
+				center: {lat: <%= @nacho_force_one["latitude"] %>, lng: <%= @nacho_force_one["longitude"] %>},
 				zoom: 10,
 				scrollwheel: false
 			};
@@ -41,6 +36,7 @@
 			var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
 			var image = "<%= asset_path 'spaceship.png' %>"
+			var image2 = "<%= asset_path 'nachos2.png' %>"
 
 			var marker = new google.maps.Marker({
 				position: {lat: <%= @nearby_ship.lat %>, lng: <%= @nearby_ship.long %>},
@@ -50,10 +46,23 @@
 				animation: google.maps.Animation.BOUNCE
 			});
 
+			var marker2 = new google.maps.Marker({
+				position: {lat: <%= @nacho_force_one["latitude"].to_f %>, lng: <%= @nacho_force_one["longitude"].to_f %>},
+				map: map,
+				title: "<%= @nacho_force_one["name"] %>",
+				icon: image2,
+				animation: google.maps.Animation.BOUNCE
+			});
+
 			var contentString = "<h3><%= @nearby_ship.name %></h3>";
+			var contentString2 = "<h3><%= @nacho_force_one["name"] %></h3><p><%= @nacho_force_one["address"] %></p><p><%= @nacho_force_one["city"] %>, <%= @nacho_force_one["state"] %></p>";
 			var infowindow = new google.maps.InfoWindow({content: contentString});
+			var infowindow2 = new google.maps.InfoWindow({content: contentString2});
 			google.maps.event.addListener(marker, 'click', function() {
 				infowindow.open(map, marker);
+			});
+			google.maps.event.addListener(marker2, 'click', function() {
+				infowindow2.open(map, marker2);
 			});
 
 		}

@@ -56,53 +56,58 @@ end
 
 
 
-	# Find the nearest nachos!
+# Find the nearest nachos!
 
 
-	def closest_nachos(user, nachos, nearby)
-		nearby = check1(user, nachos, nearby)
-		if nearby.length == 0
-			nearby = check2(user, nachos, nearby)
-		end
-		nearest_cheese(user, nachos, nearby)
-	end
-
-
-	def nearest_cheese(user, nachos, nearby)
-		if nearby.length == 1
-			nearby
-		else
-			foo = []
-			nearby.each_with_index do |cheese, index|
-				x = Math.sqrt( ((user.lat - cheese["latitude"].to_f)**2) + ((user.long - cheese["longitude"].to_f)**2) )
-				x = x.abs
-				foo.push([x, index])
-			end
-			foo.sort!
-			super_near = foo[0]
-			return nearby[super_near[1]]
-		end
-	end
-
-
-	def check1(user, nachos, nearby)
+	def nearest_cheese(ship, nachos, nearby)
+		arr = []
 		nachos.each do |cheese|
-			if (user.long- cheese["longitude"].to_f).abs <= 0.5 && (user.lat - cheese["latitude"].to_f).abs <= 0.5
-				nearby.push(cheese)
+			x = Math.sqrt( ((ship.lat - cheese["latitude"].to_f)**2) + ((ship.long - cheese["longitude"].to_f)**2) )
+			x = x.abs
+			cheese["distance_from_ship"] = x
+			arr.push(x)
+		end
+		arr.sort!
+		value = arr[0]
+		nachos.each do |cheese|
+			if cheese.has_value?(value)
+				return cheese
 			end
 		end
-		return nearby
 	end
 
 
 
-	def check2(user, nachos, nearby)
-	nachos.each do |cheese|
-		if (user.long - cheese["longitude"].to_f).abs <= 1 && (user.lat - cheese["latitude"].to_f).abs <= 1
-			nearby.push(cheese)
-		end
-	end
-end
+	# def nearest_cheese(ship, nachos, nearby)
+	# 	nachos.each_with_index do |cheese, index|
+	# 		x = Math.sqrt( ((ship.lat - cheese["latitude"].to_f)**2) + ((ship.long - cheese["longitude"].to_f)**2) )
+	# 		x = x.abs
+	# 		nearby.push([x, index])
+	# 	end
+	# 	nearby.sort!
+	# 	super_near = nearby[0]
+	# 	return nearby[super_near[1]]
+	# end
+
+
+# 	def check1(user, nachos, nearby)
+# 		nachos.each do |cheese|
+# 			if (user.long- cheese["longitude"].to_f).abs <= 0.5 && (user.lat - cheese["latitude"].to_f).abs <= 0.5
+# 				nearby.push(cheese)
+# 			end
+# 		end
+# 		return nearby
+# 	end
+
+
+
+# 	def check2(user, nachos, nearby)
+# 	nachos.each do |cheese|
+# 		if (user.long - cheese["longitude"].to_f).abs <= 1 && (user.lat - cheese["latitude"].to_f).abs <= 1
+# 			nearby.push(cheese)
+# 		end
+# 	end
+# end
 
 
 end
