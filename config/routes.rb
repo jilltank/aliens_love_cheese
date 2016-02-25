@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+  get 'welcome/index'
+
+  get 'welcome/about'
+
+  root 'welcome#quiz'
+
   get 'winner/where_are_you'
 
-  root 'winner#alien_nachos'
   post 'alien_nachos' => 'winner#alien_nachos'
 
   # The priority is based upon order of creation: first created -> highest priority.

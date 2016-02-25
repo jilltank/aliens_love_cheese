@@ -11,7 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221014656) do
+ActiveRecord::Schema.define(version: 20160224221911) do
+
+  create_table "examples", force: :cascade do |t|
+    t.string   "instance"
+    t.integer  "subject_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "locations", force: :cascade do |t|
     t.string   "city"
@@ -36,6 +43,27 @@ ActiveRecord::Schema.define(version: 20160221014656) do
     t.integer  "nacho_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "quizzes", force: :cascade do |t|
+    t.string   "question"
+    t.string   "wrong1"
+    t.string   "wrong2"
+    t.string   "right"
+    t.string   "confirmation"
+    t.string   "clue"
+    t.string   "video"
+    t.integer  "subject_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "subjects", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image"
+    t.string   "description"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
 end

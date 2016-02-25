@@ -1,0 +1,17 @@
+<% @subjects.each do |s| %>
+
+	<h1><%= s.name %></h1>
+
+	<p><%= s.description %></p>
+
+	<% @examples.each do |e| %>
+
+		<% if e.subject_id == s.id %>
+			<ul>
+				<li><%= e.instance %></li>
+			</ul>
+		<% end %>
+
+	<% end %>
+
+<% end %>

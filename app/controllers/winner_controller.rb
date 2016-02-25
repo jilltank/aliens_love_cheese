@@ -38,6 +38,11 @@ include WinnerHelper
 
   	@nacho_force_one = nearest_cheese(@nearby_ship, @nacho_bases, [])
 
+    puts "~~~~~~~~~~~~~~~~~~"
+    puts @nacho_force_one
+    puts "~~~~~~~~~~~~~~~~~~"
+    
+
   end
 
 end
