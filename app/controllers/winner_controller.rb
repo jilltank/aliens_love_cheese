@@ -21,27 +21,25 @@ include WinnerHelper
   		@nearby_ship = @nearby_ship[0]
   	end
 
-  	ne_lat = (@nearby_ship.lat + 0.25)
-  	ne_long = (@nearby_ship.long + 0.25)
-  	sw_lat = (@nearby_ship.lat - 0.25)
-  	sw_long = (@nearby_ship.long - 0.25)
+  	ne_lat = (@nearby_ship.lat + 0.09)
+  	ne_long = (@nearby_ship.long + 0.09)
+  	sw_lat = (@nearby_ship.lat - 0.09)
+  	sw_long = (@nearby_ship.long - 0.09)
+
+
+    ne_lat2 = (@nearby_ship.lat + 0.55)
+    ne_long2 = (@nearby_ship.long + 0.55)
+    sw_lat2 = (@nearby_ship.lat - 0.55)
+    sw_long2 = (@nearby_ship.long - 0.55)
 
 
   	@nacho_bases = HTTParty.get("https://www.databaseofnachos.com/api/search_within?nelat=#{ne_lat}&nelng=#{ne_long}&swlat=#{sw_lat}&swlng=#{sw_long}&offset=0")
 
-    puts "NACHO BASES INCOMING******"
-    puts @nearby_ship.lat
-    puts @nearby_ship.long
-    puts "https://www.databaseofnachos.com/api/search_within?nelat=#{ne_lat}&nelng=#{ne_long}&swlat=#{sw_lat}&swlng=#{sw_long}&offset=0"
-    puts @nacho_bases
-    puts "***************************"
+    if @nacho_bases.empty?
+      @nacho_bases = HTTParty.get("https://www.databaseofnachos.com/api/search_within?nelat=#{ne_lat2}&nelng=#{ne_long2}&swlat=#{sw_lat2}&swlng=#{sw_long2}&offset=0")
+    end
 
   	@nacho_force_one = nearest_cheese(@nearby_ship, @nacho_bases, [])
-
-    puts "~~~~~~~~~~~~~~~~~~"
-    puts @nacho_force_one
-    puts "~~~~~~~~~~~~~~~~~~"
-    
 
   end
 

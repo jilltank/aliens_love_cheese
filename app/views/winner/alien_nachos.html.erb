@@ -1,16 +1,13 @@
-<h1 class="center">Where are the spaceships?</h1>
-
-<hr>
-
-<br>
+<!-- <button type="button", class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Find out more</button> -->
 
 <div class="row">
 	<div class="col-md-4">
 		<div class="center">
 
 			<h2>The Nearest Spaceship to <%= "#{@location.city}" %></h2>
-					<p>Ship Name: <%= @nearby_ship.name %></p>
-					<p>Landed: <%= @nearby_ship.year %></p>
+					<p>pssst! This might be a fun story, but it's based on real science! <a data-toggle="modal" data-target=".bs-example-modal-lg">Find out more</a></p>
+					<%= image_tag "alien.png", width: "200" %>
+					<%= link_to "Check Somewhere Else", winner_path, class: "btn btn-success" %>
 			</div>
 
 		</div>
@@ -19,6 +16,31 @@
 		</div>
 	</div>
 
+</div>
+
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    	<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+      </div>
+    	<div class="container">
+      	<h2 class="center-it">NASA and Meteorites</h2>
+      	<br>
+    		<div class="row">
+    			<div class="col-md-8">
+    				<p>The 'spaceship' crash sites used on this site are the actual sites where scientists have discovered and documented real meteorites, which are pieces of larger space rocks that crashed to the Earth. The data is taken from NASA's database of over 45,716 meteorite finds. Watch the video below to find out more about meteorites.</p>
+    			</div>
+    			<div class="col-md-4">
+    				<%= image_tag "meteorite.png", width: "100" %>
+    			</div>
+    		</div>
+    		<br>
+    		<iframe width="560" height="315" src="https://www.youtube.com/embed/02wrLS-ue1Q" frameborder="0" allowfullscreen></iframe>
+    		<br><br>
+    	</div>
+    </div>
+  </div>
 </div>
 
 
@@ -35,8 +57,13 @@
 
 			var map = new google.maps.Map(document.getElementById('map'), mapOptions);
 
-			var image = "<%= asset_path 'spaceship.png' %>"
-			var image2 = "<%= asset_path 'nachos2.png' %>"
+			var image = {
+				url: "<%= asset_path 'spaceship2.png' %>",
+			}
+
+			var image2 = {
+				url: "<%= asset_path 'nachos3.png' %>",
+			}
 
 			var marker = new google.maps.Marker({
 				position: {lat: <%= @nearby_ship.lat %>, lng: <%= @nearby_ship.long %>},
@@ -54,7 +81,7 @@
 				animation: google.maps.Animation.BOUNCE
 			});
 
-			var contentString = "<h3><%= @nearby_ship.name %></h3>";
+			var contentString = "Landing Site: <%= @nearby_ship.name %>";
 			var contentString2 = "<h3><%= @nacho_force_one["name"] %></h3><p><%= @nacho_force_one["address"] %></p><p><%= @nacho_force_one["city"] %>, <%= @nacho_force_one["state"] %></p>";
 			var infowindow = new google.maps.InfoWindow({content: contentString});
 			var infowindow2 = new google.maps.InfoWindow({content: contentString2});

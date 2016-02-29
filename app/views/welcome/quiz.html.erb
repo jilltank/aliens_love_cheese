@@ -1,17 +1,51 @@
-<% @subjects.each do |s| %>
+<div id="topics">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="well">
+				<h1><%= @subject.name %></h1>
+				<br><br><br>
+				<%= image_tag @subject.image, width: 200, id: "avatar" %>
+			</div>
+		</div>
+		<div class="col-md-8">
+			<div class="well">
+				<p><%= @subject.description %></p>
+				<% @examples.each do |e| %>
+					<p><%= e.instance %></p>
+					<br>
+				<% end %>
+			<form id="form">
+				<% @test.each do |t| %>
+					<p><%= t.question %></p>
+					<% @answer_box = [t.wrong1, t.wrong2, t.right].shuffle %>
+				<% end %>
+				<select>
+					<% @answer_box.each do |choice| %>
+						<option><%= choice %></option>
+					<% end %>
+				</select>
+			</form>
+			<% if @subject.id == @subjects.length %>
+				<%= link_to "Did I Win?", winner_path, class: "btn btn-success" %>
+			<% else %>
+				<%= link_to "Next", go_path(id: @subject.id+1),  class: "btn btn-success" %>
+			<% end %>
+		</div>
+	</div>
+</div>
 
-	<h1><%= s.name %></h1>
 
-	<p><%= s.description %></p>
+<script type="text/javascript">
+  $('#form').parsley();
+</script>
 
-	<% @examples.each do |e| %>
 
-		<% if e.subject_id == s.id %>
-			<ul>
-				<li><%= e.instance %></li>
-			</ul>
-		<% end %>
 
-	<% end %>
-
-<% end %>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#topics').hide(300).show(1000);
+	});
+	$("#avatar").hover(function(){
+    $("#avatar").slideToggle();
+}); 
+</script>

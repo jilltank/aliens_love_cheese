@@ -1,11 +1,11 @@
 Rails.application.routes.draw do
-  get 'welcome/index'
+  root 'welcome#index'
 
   get 'welcome/about'
 
-  root 'welcome#quiz'
+  get 'go' => 'welcome#quiz'
 
-  get 'winner/where_are_you'
+  get 'winner' => 'winner#where_are_you'
 
   post 'alien_nachos' => 'winner#alien_nachos'
 

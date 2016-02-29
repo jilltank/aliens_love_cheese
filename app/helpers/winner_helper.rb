@@ -18,7 +18,6 @@ module WinnerHelper
 		else
 			foo = []
 			nearby.each_with_index do |ship, index|
-				# x = (user.latitude - ship.lat).abs - (user.longitude - ship.long).abs
 				x = Math.sqrt( ((user.latitude - ship.lat)**2) + ((user.longitude - ship.long)**2) )
 				x = x.abs
 				foo.push([x, index])
@@ -54,60 +53,24 @@ module WinnerHelper
 end
 
 
-
-
-# Find the nearest nachos!
+# Find the nearest nacho place!
 
 
 	def nearest_cheese(ship, nachos, nearby)
-		arr = []
 		nachos.each do |cheese|
 			x = Math.sqrt( ((ship.lat - cheese["latitude"].to_f)**2) + ((ship.long - cheese["longitude"].to_f)**2) )
 			x = x.abs
 			cheese["distance_from_ship"] = x
-			arr.push(x)
+			nearby.push(x)
 		end
-		arr.sort!
-		value = arr[0]
+		nearby.sort!
+		value = nearby[0]
 		nachos.each do |cheese|
 			if cheese.has_value?(value)
 				return cheese
 			end
 		end
 	end
-
-
-
-	# def nearest_cheese(ship, nachos, nearby)
-	# 	nachos.each_with_index do |cheese, index|
-	# 		x = Math.sqrt( ((ship.lat - cheese["latitude"].to_f)**2) + ((ship.long - cheese["longitude"].to_f)**2) )
-	# 		x = x.abs
-	# 		nearby.push([x, index])
-	# 	end
-	# 	nearby.sort!
-	# 	super_near = nearby[0]
-	# 	return nearby[super_near[1]]
-	# end
-
-
-# 	def check1(user, nachos, nearby)
-# 		nachos.each do |cheese|
-# 			if (user.long- cheese["longitude"].to_f).abs <= 0.5 && (user.lat - cheese["latitude"].to_f).abs <= 0.5
-# 				nearby.push(cheese)
-# 			end
-# 		end
-# 		return nearby
-# 	end
-
-
-
-# 	def check2(user, nachos, nearby)
-# 	nachos.each do |cheese|
-# 		if (user.long - cheese["longitude"].to_f).abs <= 1 && (user.lat - cheese["latitude"].to_f).abs <= 1
-# 			nearby.push(cheese)
-# 		end
-# 	end
-# end
 
 
 end

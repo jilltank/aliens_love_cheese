@@ -19,6 +19,7 @@ gem 'font-awesome-rails'
 gem 'geocoder'
 gem 'httparty'
 gem 'figaro'
+gem 'parsley-rails'
 
 group :development do
 	gem 'better_errors'
