@@ -10,10 +10,10 @@ include WinnerHelper
 
   def alien_nachos
 
-    @location = Location.create(city: params[:city], state: params[:state])
+    @location = Location.create city: params[:city], state: params[:state]
 	  @location.save
 
-  	@spaceships = Meteorite.where.not(lat: nil) 
+  	@spaceships = Meteorite.where.not lat: nil 
 
   	@nearby_ship = closest_ship @location, @spaceships, []
 
