@@ -19,12 +19,6 @@ gem 'font-awesome-rails'
 gem 'geocoder'
 gem 'httparty'
 gem 'figaro'
-gem 'parsley-rails'
-
-group :development do
-	gem 'better_errors'
-end
-
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -50,6 +44,7 @@ end
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
+  gem 'better_errors'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

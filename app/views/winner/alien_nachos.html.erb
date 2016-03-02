@@ -1,21 +1,16 @@
-<!-- <button type="button", class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg">Find out more</button> -->
-
 <div class="row">
 	<div class="col-md-4">
 		<div class="center">
-
 			<h2>The Nearest Spaceship to <%= "#{@location.city}" %></h2>
-					<p>pssst! This might be a fun story, but it's based on real science! <a data-toggle="modal" data-target=".bs-example-modal-lg">Find out more</a></p>
-					<%= image_tag "alien.png", width: "200" %>
-					<%= link_to "Check Somewhere Else", winner_path, class: "btn btn-success" %>
-			</div>
-
+			<p>pssst! This might be a fun story, but it's based on real science! <a data-toggle="modal" data-target=".bs-example-modal-lg">Find out more</a></p>
+			<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "alien.png", id: "avatar" %></a>
+			<%= link_to "Check Somewhere Else", winner_path, class: "btn btn-success" %>
 		</div>
+	</div>
 	<div class="col-md-8">
 		<div id="map">
 		</div>
 	</div>
-
 </div>
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
@@ -51,7 +46,7 @@
 
 			var mapOptions = {
 				center: {lat: <%= @nacho_force_one["latitude"] %>, lng: <%= @nacho_force_one["longitude"] %>},
-				zoom: 10,
+				zoom: 8,
 				scrollwheel: false
 			};
 
@@ -81,7 +76,7 @@
 				animation: google.maps.Animation.BOUNCE
 			});
 
-			var contentString = "Landing Site: <%= @nearby_ship.name %>";
+			var contentString = "<h3>Landing Site: <%= @nearby_ship.name %></h3><p>GPS coordinates: <%= @nearby_ship.lat %>, <%= @nearby_ship.long %></p>";
 			var contentString2 = "<h3><%= @nacho_force_one["name"] %></h3><p><%= @nacho_force_one["address"] %></p><p><%= @nacho_force_one["city"] %>, <%= @nacho_force_one["state"] %></p>";
 			var infowindow = new google.maps.InfoWindow({content: contentString});
 			var infowindow2 = new google.maps.InfoWindow({content: contentString2});

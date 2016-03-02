@@ -4,7 +4,7 @@
 			<div class="well">
 				<h1><%= @subject.name %></h1>
 				<br><br><br>
-				<%= image_tag @subject.image, width: 200, id: "avatar" %>
+				<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag @subject.image, id: "avatar" %></a>
 			</div>
 		</div>
 		<div class="col-md-8">
@@ -12,33 +12,79 @@
 				<p><%= @subject.description %></p>
 				<% @examples.each do |e| %>
 					<p><%= e.instance %></p>
-					<br>
 				<% end %>
-			<form id="form">
-				<% @test.each do |t| %>
-					<p><%= t.question %></p>
-					<% @answer_box = [t.wrong1, t.wrong2, t.right].shuffle %>
-				<% end %>
-				<select>
-					<% @answer_box.each do |choice| %>
-						<option><%= choice %></option>
+			</div>
+		</div>
+		<div class="col-md-12 center-it">
+			<div class="well">
+				<p><%= @test.question %></p>
+				<% @answer_box.each do |choice| %>
+					<% if choice == @test.right %>
+						<p><a class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm"><%= choice %></a></p>
+					<% else %>
+						<p><a class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><%= choice %></a></p>
 					<% end %>
-				</select>
-			</form>
-			<% if @subject.id == @subjects.length %>
-				<%= link_to "Did I Win?", winner_path, class: "btn btn-success" %>
-			<% else %>
-				<%= link_to "Next", go_path(id: @subject.id+1),  class: "btn btn-success" %>
-			<% end %>
+				<% end %>
 		</div>
 	</div>
 </div>
 
 
-<script type="text/javascript">
-  $('#form').parsley();
-</script>
+<!-- Model for correct answers -->
+<div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-sm">
+    <div class="modal-content">
+    	<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+      </div>
+    	<div class="container">
+    		<div class="row">
+    			<div class="well-trans">
+    				<div class="center-it">
+	    				<h2>That's Right!</h2>
+	    				<p><%= @test.confirmation %></p>
+	    				<% if @subject.id != @subjects.length %>
+	    					<p><%= link_to "Next", go_path(id: @subject.id+1), class: "btn btn-success" %></p>
+	    				<% else %>
+	    					<%= link_to "Winner!", winner_path, class: "btn btn-success" %>
+	    					<br>
+	    				<% end %>
+	    				<br>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+  </div>
+</div>
 
+
+<!-- Modal for incorrect answers -->
+<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+    	<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">x</span></button>
+      </div>
+      <div class="well">
+	    	<div class="center-it">
+	      	<h2>Keep Trying</h2>
+	      	<br>
+	    		<p><%= @test.clue %></p>
+	    		<br>
+	    		<% if @test.video != nil %>
+	    			<iframe width="560" height="315" src=<%= @test.video %> frameborder="0" allowfullscreen></iframe>
+	    		<% else %>
+	    			<%= image_tag "wrong.png", width: "100" %>
+	    		<% end %>
+	    		<br><br>
+	    		<p><%= link_to "try again", go_path(id: @subject.id), class: "btn btn-success" %></p>
+	    	</div>
+	    	<br>
+    	</div>
+    </div>
+  </div>
+</div>
 
 
 <script type="text/javascript">

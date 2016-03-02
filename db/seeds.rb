@@ -21,7 +21,7 @@ Subject.create(name: "Floats", image: "float.png", description: "Float are simil
 Subject.create(name: "Strings", image: "string.png", description: "Some examples of strings are listed below. What do you think strings are?")
 
 # id: 4
-Subject.create(name: "Booleans & Comparators", image: "boolean.png",description: "If you ask Ruby a yes or no question, it will return one of two things:/n /n true/n false/n We check to see whether these things are true using comparators. Here are some:")
+Subject.create(name: "Booleans", image: "boolean.png",description: "If you ask Ruby a yes or no question, it will return one of two things:/n /n true/n false/n We check to see whether these things are true using comparators. Here are some:")
 
 # id: 5
 Subject.create(name: "Variables", image: "variable.png", description: "Variables are like boxes. They store information so you can use it later. Rules for Variables: 1. You can name it whatever you want, as long as you follow these guidelines. 2. You must always start with a lowercase letter. Other characters can be letters, numbers, or underscores ( _ ). 3. If you want it to be more than one word, you must use the underscore instead of spaces. 4. You tell a variable what to store using = ")
@@ -76,8 +76,8 @@ Quiz.create(question: "What are the rules that make all these floats?", wrong1: 
 Quiz.create(question: "Which rule makes all of these things strings?", wrong1: "They all have words in them.", wrong2: "They are all awesome.", right: "A string can be anything between quotes.", confirmation: "Even if there's nothing between the quotes, Ruby still sees it as a string.", clue: "What do they all start and end with?", subject_id:  3)
 
 
-Quiz.create(question: "What do you think Ruby would return if we put in 5 > 1 ?", wrong1: "nil", wrong2: "false", right: "true", confirmation: "Ruby usually returns a true or false whether you ask for it or not.", clue: "Check out this video for more clues and help.", video: "https://www.youtube.com/watch?v=y3rCKJNOwpA", subject_id: 4)
+Quiz.create(question: "What do you think Ruby would return if we put in 5 > 1 ?", wrong1: "nil", wrong2: "false", right: "true", confirmation: "Whenever you give Ruby a comparator, it knows you're asking a question.", clue: "Check out this video for more clues and help.", video: "https://www.youtube.com/embed/y3rCKJNOwpA", subject_id: 4)
 
 
-Quiz.create(question: "Which of these is not a variable?", wrong1: "moon = \'Made of cheese\'", wrong2: "numbers = 453365", right: "\'salsa\'", confirmation: "That wasn't a variable -- it was just a string!", clue: "You might get some clues from this video:", video: "https://www.youtube.com/watch?v=G41G_PEWFjE", subject_id: 5)
+Quiz.create(question: "Which of these is not a variable?", wrong1: "moon = \'Made of cheese\'", wrong2: "numbers = 453365", right: "\'salsa\'", confirmation: "That wasn't a variable -- it was just a string!", clue: "You might get some clues from this video:", video: "https://www.youtube.com/embed/G41G_PEWFjE", subject_id: 5)
 

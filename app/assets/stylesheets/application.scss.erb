@@ -17,13 +17,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-@import "parsley";
 
 
 body{
-	background: url(<%= asset_path "back7.jpg" %>) no-repeat center center fixed;
-	background-size: cover;
-	color: #122A0A;
+/*	background: url(<%= asset_path "back.jpg" %>) no-repeat center center fixed;
+	background-size: cover;*/
+	background-color: lightcyan;
+	color: darkslategray;
 	font-family: 'Exo 2', sans-serif;
 }
 .navbar{
@@ -38,22 +38,24 @@ body{
 	width: 70%;
 }
 .well{
+/*	background-color: rgba(255,255,255,0.5);
+	border: 0px;*/
 	background-color: transparent;
-	border: 0px;
+	border: 1px solid darkslategray;
+	border-radius: 10px;
+	padding:30px;
 }
-
-
-
-.carousel-caption{
-	color: black;
-	background: none;
+.well-trans{
+	background-color: transparent;
+	text-align: center;
+	padding: 30px;
 }
-h1{
-	font-weight: bold;
+#avatar{
+	text-align: center;
+	width: 100%;
 }
 h3{
 	font-size: 14px;
-	color: #122A0A;
 }
 #map {
 	width: 100%;

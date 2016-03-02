@@ -27,7 +27,7 @@
     <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="<%= welcome_about_path %>">About</a></li>
+        <li><a href="<%= about_path %>">About</a></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
@@ -39,6 +39,14 @@
 <div class="container">
 <%= yield %>
 </div>
+
+<script>
+
+$(function () {
+  $('[data-toggle="popover"]').popover()
+})
+
+</script>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['maps_api_key'] %>"></script>
 </body>

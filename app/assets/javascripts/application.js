@@ -12,8 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require parsley.remote
-//= require parsley.i18n.fr
 //= require bootstrap-sprockets
 //= require_tree .
 

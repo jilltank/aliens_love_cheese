@@ -1,29 +1,48 @@
-<h1>About</h1>
-
-<p>
-This is a game intended to introduce kids to basic programming concepts through Ruby, a popular programming language that's English-based and easy to read.  No downloading required.
-</p>
-
-<p>
-After they learn, kids are rewarded by being able to play with an interactive map where aliens eat nachos. It's a fun, simple story with simple science facts thrown in for fun.
-</p>
-
-<h1>About Me</h1>
-
-<p>
-I am a programmer and a mother of two young girls, who both signed off on the awesomeness of aliens and nachos. My goal with this web app is to encourage and inspire young kids in STEM fields, especially young girls. You can find out more about me at my personal website, found here.
-</p>
-
-<h1>What I Used</h1>
-
-<p>
-Thanks to Standard Code's Database of Nachos for inspiring the idea.
-</p>
-
-<p>
-I also used NASA's database of meteorite finds for my "spaceship landing sites", and the ubiquitous Google Maps to plot them out.
-</p>
-
-<p>
-The majority of the animations were done using jQuery, though the " spinning nacho" effect used CSS3.
-</p> 
+<div class="row">
+	<div class="col-md-8">
+		<h1>About Aliens + Nachos</h1>
+		<p>
+		This is a game intended to introduce kids to basic programming concepts through Ruby, a popular programming language that's English-based and easy to read.  There is no downloading or installing required to play and learn.
+		</p>
+		<p>
+		After they learn, kids are rewarded with an interactive map of 'where aliens eat nachos.' It's a fun, simple story with some science facts thrown in for fun. No downloads or logins required.
+		</p>
+	</div>
+	<div class="col-md-4">
+		<div class="well-trans">
+		<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[1] %>"><%= image_tag "correct.png", height: "150" %></a>
+		</div>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-4">
+		<div class="well-trans">
+			<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "nachos.png", height: "150" %></a>
+		</div>
+	</div>
+	<div class="col-md-8">
+		<h1>About Me</h1>
+		<p>
+		I am a programmer and a mother of two young girls, who both signed off on the awesomeness of aliens and nachos. My goal with this web app is to encourage and inspire young kids in STEM fields, especially young girls. You can find out more about me <a href="http://jilltank.github.io" target="_blank">here</a> at my personal website.
+		</p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-8">
+		<h1>What I Used</h1>
+		<p>
+		Thanks to <a href="http://www.standardco.de/d-o-n-the-internet-s-most-comprehensive-database-of-nachos" target="_blank">Standard Code's Database of Nachos</a> for inspiring the idea and to <a href="http://code.org" target="_blank">code.org</a> for providing my family with great resources.
+		</p>
+		<p>
+		I also used <a href="https://data.nasa.gov/view/ak9y-cwf9" target="_blank">NASA's database of meteorite finds</a> for my "spaceship landing sites", and the ubiquitous <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Maps</a> API to plot them out.
+		</p>
+		<p>
+		The majority of the animations were done using jQuery, though the " spinning nacho" effect used CSS3.
+		</p>
+	</div>
+	<div class="col-md-4">
+		<div class="well-trans">
+			<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[2] %>"><%= image_tag "meteorite.png", height: "150" %></a>
+		</div>
+	</div>
+</div> 
