@@ -4,7 +4,7 @@
 			<div class="well">
 				<h1><%= @subject.name %></h1>
 				<br><br><br>
-				<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag @subject.image, id: "avatar" %></a>
+				<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>" ><%= image_tag @subject.image, id: "#{@subject.name.downcase}" %></a>
 			</div>
 		</div>
 		<div class="col-md-8">
@@ -91,7 +91,4 @@
 	$(document).ready(function() {
 		$('#topics').hide(300).show(1000);
 	});
-	$("#avatar").hover(function(){
-    $("#avatar").slideToggle();
-}); 
 </script>

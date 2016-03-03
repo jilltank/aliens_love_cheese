@@ -10,14 +10,14 @@
 	</div>
 	<div class="col-md-4">
 		<div class="well-trans">
-		<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[1] %>"><%= image_tag "correct.png", height: "150" %></a>
+		<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[1] %>"><%= image_tag "correct.png", height: "150", id: "alien" %></a>
 		</div>
 	</div>
 </div>
 <div class="row">
 	<div class="col-md-4">
 		<div class="well-trans">
-			<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "nachos.png", height: "150" %></a>
+			<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "nachos.png", height: "150", id: "integers" %></a>
 		</div>
 	</div>
 	<div class="col-md-8">
@@ -37,12 +37,12 @@
 		I also used <a href="https://data.nasa.gov/view/ak9y-cwf9" target="_blank">NASA's database of meteorite finds</a> for my "spaceship landing sites", and the ubiquitous <a href="https://developers.google.com/maps/documentation/javascript/" target="_blank">Google Maps</a> API to plot them out.
 		</p>
 		<p>
-		The majority of the animations were done using jQuery, though the " spinning nacho" effect used CSS3.
+		The majority of the animations were done using <a href="http://bouncejs.com">Bounce.js.</a>
 		</p>
 	</div>
 	<div class="col-md-4">
 		<div class="well-trans">
-			<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[2] %>"><%= image_tag "meteorite.png", height: "150" %></a>
+			<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[2] %>"><%= image_tag "meteorite.png", height: "150", id: "variables" %></a>
 		</div>
 	</div>
 </div> 
