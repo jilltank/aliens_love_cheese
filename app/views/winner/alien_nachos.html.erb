@@ -3,7 +3,7 @@
 		<div class="center">
 			<h2>The Nearest Spaceship to <%= "#{@location.city}" %></h2>
 			<p>pssst! This might be a fun story, but it's based on real science! <a data-toggle="modal" data-target=".bs-example-modal-lg">Find out more</a></p>
-			<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "alien.png", id: "strings" %></a>
+			<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "alien.png", id: "strings", class: "img-responsive" %></a>
 			<%= link_to "Check Somewhere Else", winner_path, class: "btn btn-success" %>
 		</div>
 	</div>
