@@ -20,4 +20,4 @@
 /config/application.yml
 
 # Ignore the .env thingy
-*.env
+/*.env
