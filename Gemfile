@@ -12,8 +12,9 @@ gem 'coffee-rails', '~> 4.1.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
-gem 'bootstrap-sass'
-gem 'font-awesome-rails'
+gem 'twitter-bootswatch-rails', :github => 'scottvrosenthal/twitter-bootswatch-rails'
+gem 'therubyracer'
+gem 'less-rails'
 gem 'geocoder'
 gem 'httparty'
 gem 'figaro'

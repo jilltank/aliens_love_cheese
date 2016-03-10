@@ -12,49 +12,23 @@
  *
  *= require_tree .
  *= require_self
+ *= require readable/loader
+ *= require readable/bootswatch
  */
 
-@import "bootstrap-sprockets";
-@import "bootstrap";
-@import "font-awesome";
 
-
-body{
-	background-color: lightcyan;
-	color: darkslategray;
-	font-family: 'Exo 2', sans-serif;
-}
-.navbar{
-	background-color: rgba(255,255,255,0.0);
-	border: 0px;
-	margin: 0px;
-}
-.navbar-default{
-	margin: 0px;
-}
 .container{
 	width: 70%;
 }
 .well{
 	background-color: transparent;
-	border: 1px solid darkslategray;
-	border-radius: 10px;
+	border: 0px;
+  text-align: center;
+  box-shadow: none;
 	padding:30px;
-}
-.well-trans{
-	background-color: transparent;
-	text-align: center;
-	padding: 30px;
-}
-.about{
-  z-index: 1;
 }
 #avatar{
 	text-align: center;
-	width: 100%;
-}
-h3{
-	font-size: 14px;
 }
 #map {
 	width: 100%;

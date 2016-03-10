@@ -79,5 +79,8 @@ Quiz.create(question: "Which rule makes all of these things strings?", wrong1: "
 Quiz.create(question: "What do you think Ruby would return if we put in 5 > 1 ?", wrong1: "nil", wrong2: "false", right: "true", confirmation: "Whenever you give Ruby a comparator, it knows you're asking a question.", clue: "Check out this video for more clues and help.", video: "https://www.youtube.com/embed/y3rCKJNOwpA", subject_id: 4)
 
 
+Quiz.create(question: "What do you think Ruby would return if we put in 100 < 6 ?", wrong1: "true", wrong2: "nil", right: "false", confirmation: "100 is a bigger number than 6, so Ruby knows that 100 < 6 is false.", clue: "Check out this video for more clues and help.", video: "https://www.youtube.com/embed/y3rCKJNOwpA", subject_id: 4)
+
+
 Quiz.create(question: "Which of these is not a variable?", wrong1: "moon = \'Made of cheese\'", wrong2: "numbers = 453365", right: "\'salsa\'", confirmation: "That wasn't a variable -- it was just a string!", clue: "You might get some clues from this video:", video: "https://www.youtube.com/embed/G41G_PEWFjE", subject_id: 5)
 

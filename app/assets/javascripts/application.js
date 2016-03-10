@@ -12,8 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap-sprockets
-//= require_tree .
+//= require readable/loader
+//= require readable/bootswatch
+
 
 
 
