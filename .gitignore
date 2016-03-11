@@ -19,5 +19,5 @@
 # Ignore application configuration
 /config/application.yml
 
-# Ignore the .env thingy
+# Ignore the .env thing
 /*.env
