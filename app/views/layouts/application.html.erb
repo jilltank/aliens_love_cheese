@@ -37,29 +37,21 @@
             <hr>
           </nav>
         </div>
-        <% if @nachos == 0 %>
-          <div class="col-md-10 col-md-offset-2">
-            <!-- <h1>Aliens Love Nachos, Too!</h1> -->
-            <%= image_tag "logo.png", height: "80" %>
-          </div>
-        <% else %>
-          <div class="col-md-12">
-              <h3 id="meter">
-                Nacho-Meter: 
-                <% @nachos.times do %>
-                  <%= image_tag "nachos2.png", class: "bounce" %>
-                <% end %>
-              </h3>
-          </div>
-        <% end %>
+        <div class="col-md-11 col-md-offset-1">
+          <a href="<%= root_path %>"><%= image_tag "logo.png", height: "80" %></a>
+        </div>
       </div>
     </div>
   </div>
 
 
-  <div class="container">
+<div class="container">
+  <div class="content">
     <%= yield %>
   </div>
+</div>
+
+<br><br>
 
 
 <hr>
@@ -102,7 +94,7 @@
         <br>
         <div class="row">
           <div class="col-md-8">
-            <p>The 'spaceship' crash sites used on this site are the actual sites where scientists have discovered and documented real meteorites, which are pieces of larger space rocks that crashed to the Earth. The data is taken from NASA's database of over 45,716 meteorite finds. Watch the video below to find out more about meteorites.</p>
+            <p>The spaceship landing sites used on this site are the actual sites where scientists have discovered and documented real meteorites, which are pieces of larger space rocks that crashed to the Earth. The data is taken from NASA's database of over 45,716 meteorite finds. Watch the video below to find out more about meteorites.</p>
           </div>
           <div class="col-md-4">
             <%= image_tag "meteorite.png", width: "100" %>
