@@ -22,7 +22,7 @@
 					<% if choice == @test.right %>
 						<p><a class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm"><%= choice %></a></p>
 					<% else %>
-						<p><a class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-lg"><%= choice %></a></p>
+						<p><a class="btn btn-success" data-toggle="modal" href="#incorrect"><%= choice %></a></p>
 					<% end %>
 				<% end %>
 		</div>
@@ -60,7 +60,7 @@
 
 
 <!-- Modal for incorrect answers -->
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+<div id="incorrect" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
   <div class="modal-dialog modal-lg">
     <div class="modal-content">
     	<div class="modal-header">
