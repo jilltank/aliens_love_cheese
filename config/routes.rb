@@ -1,17 +1,10 @@
 Rails.application.routes.draw do
   root 'welcome#index'
 
-  # resources :welcome do
-
-  # end
-
-  # resources :winner do
-    
-  # end
+  get 'go' => 'welcome#quiz'
 
   get 'about' => 'welcome#about'
 
-  get 'go' => 'welcome#quiz'
 
   get 'winner' => 'winner#where_are_you'
 

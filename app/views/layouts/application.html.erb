@@ -5,48 +5,83 @@
   <meta http-equiv=""X-UA-Compatible"" content=""IE=edge"">
   <meta name=""viewport"" content=""width=device-width, initial-scale=1"">
   <title>Aliens Love Nachos</title>
-  <link href='https://fonts.googleapis.com/css?family=Exo+2:400,700' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav class="navbar">
   <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="<%= root_path %>"><img alt="Brand" src="<%= asset_path "nachos.png" %>" height="150%" ></a>
+    <div class="row">
+      <div class="col-md-2">
+        <a href="<%= root_path %>" class="pull-left"><img id="logo" class="img-responsive" src="<%= asset_path "nachos.png" %>" /></a>
     </div>
-    <ul class="nav navbar-nav navbar-left">
-        <li><a href="#">Aliens Love Nachos, Too!</a></li>
-      </ul>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="<%= about_path %>" class="about">About</a></li>
-      </ul>
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md-12">
+          <nav class="navbar navbar-default" role="navigation">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#example-navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+              <ul class="nav navbar-nav navbar-right">
+                <li><a href="#">Space Facts</a></li>
+                <li><a href="#">About Ruby</a></li>
+                <li><a href="#">For Parents</a></li>
+<!--                 <li><a href="<%= about_path %>">About</a></li> -->
+              </ul>
+            </div>
+            <hr>
+          </nav>
+        </div>
+        <div class="col-md-10 col-md-offset-2">
+          <h1>Aliens Love Nachos, Too!</h1>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 <div class="container">
 <%= yield %>
 </div>
 
+<hr>
+<div class="footer container">
+  <br><br>
+  <div class="row center-it">
+    <div class="col-md-3 col-md-offset-1">
+      <p>Contact</p>
+      <p><a href="#" target="_blank">GitHub</a></p>
+      <p><a href="#" target="_blank">Twitter</a></p>
+      <p><a href="#" target="_blank">LinkedIn</a></p>
+    </div>
+    <div class="col-md-3">
+      <p>Sources</p>
+      <p><a href="#" target="_blank">NASA</a></p>
+      <p><a href="#" target="_blank">Nachos</a></p>
+      <p><a href="#" target="_blank">Bounce.js</a></p>
+    </div>
+    <div class="col-md-3">
+      <p>More Practice</p>
+      <p><a href="#" target="_blank">Code.org</a></p>
+      <p><a href="#" target="_blank">Lightbot</a></p>
+      <p><a href="#" target="_blank">The Foos</a></p>
+    </div>
+  </div>
+</div>
+<br>
+
+
+
 <script>
-
-$(function () {
-  $('[data-toggle="popover"]').popover()
-})
-
+  $(function () {
+    $('[data-toggle="popover"]').popover()
+  })
 </script>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['maps_api_key'] %>"></script>
