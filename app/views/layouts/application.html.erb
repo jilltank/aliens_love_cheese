@@ -30,8 +30,8 @@
             <div class="collapse navbar-collapse" id="example-navbar-collapse">
               <ul class="nav navbar-nav navbar-right">
                 <li><a href="#space" data-toggle="modal">Space Facts</a></li>
-                <li><a href="#">About Ruby</a></li>
-                <li><a href="#">For Parents</a></li>
+                <li><a href="/about#ruby">About Ruby</a></li>
+                <li><a href="/about#parents">For Parents</a></li>
               </ul>
             </div>
             <hr>
@@ -39,7 +39,8 @@
         </div>
         <% if @nachos == 0 %>
           <div class="col-md-10 col-md-offset-2">
-            <h1>Aliens Love Nachos, Too!</h1>
+            <!-- <h1>Aliens Love Nachos, Too!</h1> -->
+            <%= image_tag "logo.png", height: "80" %>
           </div>
         <% else %>
           <div class="col-md-12">
@@ -56,35 +57,38 @@
   </div>
 
 
-<div class="container">
-<%= yield %>
-</div>
+  <div class="container">
+    <%= yield %>
+  </div>
+
 
 <hr>
 <div class="footer container">
   <br><br>
   <div class="row center-it">
     <div class="col-md-4">
-      <p>Contact</p>
-      <p><a href="#" target="_blank">GitHub</a></p>
-      <p><a href="#" target="_blank">Twitter</a></p>
-      <p><a href="#" target="_blank">LinkedIn</a></p>
+      <p>Connect</p>
+      <p><a href="https://github.com/jilltank?tab=repositories" target="_blank">GitHub</a></p>
+      <p><a href="https://twitter.com/jill_tank" target="_blank">Twitter</a></p>
+      <p><a href="https://www.linkedin.com/in/jillian-tankersley-726432aa" target="_blank">LinkedIn</a></p>
+      <br>
     </div>
     <div class="col-md-4">
       <p>Sources</p>
-      <p><a href="#" target="_blank">NASA</a></p>
-      <p><a href="#" target="_blank">Nachos</a></p>
-      <p><a href="#" target="_blank">Bounce.js</a></p>
+      <p><a href="https://data.nasa.gov/view/ak9y-cwf9" target="_blank">NASA</a></p>
+      <p><a href="https://www.databaseofnachos.com" target="_blank">Nachos</a></p>
+      <p><a href="http://bouncejs.com/" target="_blank">Bounce.js</a></p>
+      <br>
     </div>
     <div class="col-md-4">
       <p>More Practice</p>
-      <p><a href="#" target="_blank">Code.org</a></p>
-      <p><a href="#" target="_blank">Lightbot</a></p>
-      <p><a href="#" target="_blank">The Foos</a></p>
+      <p><a href="https://code.org/learn" target="_blank">Code.org</a></p>
+      <p><a href="http://lightbot.com/hour-of-code-2015.html" target="_blank">Lightbot</a></p>
+      <p><a href="http://thefoos.com/" target="_blank">The Foos</a></p>
+      <br>
     </div>
   </div>
 </div>
-<br>
 
 
 <div id="space" class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
