@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   root 'welcome#index'
 
   get 'go' => 'welcome#quiz'
@@ -11,6 +12,10 @@ Rails.application.routes.draw do
   post 'alien_nachos' => 'winner#alien_nachos'
 
   get 'no_nachos' => 'winner#no_nachos'
+
+  resources :admin do
+  end
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

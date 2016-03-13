@@ -9,31 +9,43 @@
 
 <div id="topics">
 	<div class="row">
-		<div class="col-md-4">
-			<div class="well">
+		<div class="well">
+			<div class="col-md-12 center-it">
 				<h1><%= @subject.name %></h1>
-				<br><br><br>
-				<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>" ><%= image_tag @subject.image, id: "#{@subject.name.downcase}", class: "img-responsive" %></a>
+				<hr>
+				<p><%= @subject.description %></p>
 			</div>
 		</div>
-		<div class="col-md-8">
-			<div class="well">
-				<p><%= @subject.description %></p>
+	</div>
+	<div class="row">
+		<div class="well">
+			<div class="col-md-6">
+				<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>" ><%= image_tag @subject.image, id: "#{@subject.name.downcase}", class: "img-responsive" %></a>
+			</div>
+			<div class="col-md-6">
 				<% @examples.each do |e| %>
 					<p><%= e.instance %></p>
 				<% end %>
 			</div>
 		</div>
-		<div class="col-md-12 center-it">
-			<div class="well">
-				<p><%= @test.question %></p>
-				<% @answer_box.each do |choice| %>
-					<% if choice == @test.right %>
+	</div>
+	<div class="row">
+		<div class="col-md-12">
+			<hr>
+		</div>
+	</div>
+	<div class="row">
+		<p class="center-it"><%= @test.question %></p>
+	</div>
+	<div class="row">
+		<div class="well center-it">
+			<% @answer_box.each do |choice| %>
+				<% if choice == @test.right %>
 						<p><a class="btn btn-success" data-toggle="modal" data-target=".bs-example-modal-sm"><%= choice %></a></p>
-					<% else %>
+				<% else %>
 						<p><a class="btn btn-success" data-toggle="modal" href="#incorrect"><%= choice %></a></p>
-					<% end %>
 				<% end %>
+			<% end %>
 		</div>
 	</div>
 </div>
