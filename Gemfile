@@ -23,7 +23,6 @@ gem 'less-rails'
 gem 'geocoder'
 gem 'httparty'
 gem 'devise'
-gem 'cancancan'
 
 group :production do
 	gem 'pg'
