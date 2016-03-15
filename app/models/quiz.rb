@@ -1,5 +1,5 @@
 class Quiz < ActiveRecord::Base
 
-	belongs_to :example
+	belongs_to :subject
 
 end

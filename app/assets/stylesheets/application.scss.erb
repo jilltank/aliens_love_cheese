@@ -10,7 +10,7 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
- *= require_tree .
+ *= require readable
  *= require_self
  *= require readable/loader
  *= require readable/bootswatch
@@ -21,7 +21,7 @@
 	width: 70%;
 }
 .content{
-  border: 4px dotted black;
+  border: 1px solid black;
   border-radius: 15px;
   background-color: #F2F2F2;
   box-shadow: 10px 10px 5px #D8D8D8;
@@ -51,7 +51,6 @@ hr{
   margin: 30px;
 }
 #topics h1{
-  font-family: 'Codystar', cursive;
   font-weight: bold;
 }
 #meter{
@@ -59,8 +58,9 @@ hr{
   background-color: rgba(92,184,92, 1.0);
   width: 100%;
   padding: 15px;
-  color: black;
-  border: 1px solid black;
+  color: #F2F2F2;
+  border: 1px solid #F2F2F2;
+  box-shadow: 10px 10px 5px #E6E6E6;
   border-radius: 10px;
 }
 .modal-header{

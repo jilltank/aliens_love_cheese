@@ -22,6 +22,8 @@ gem 'therubyracer'
 gem 'less-rails'
 gem 'geocoder'
 gem 'httparty'
+gem 'devise'
+gem 'activeadmin', github: 'activeadmin'
 
 
 group :production do
