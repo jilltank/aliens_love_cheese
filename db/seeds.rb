@@ -84,3 +84,4 @@ Quiz.create(question: "What do you think Ruby would return if we put in 100 < 6 
 
 Quiz.create(question: "Which of these is not a variable?", wrong1: "moon = \'Made of cheese\'", wrong2: "numbers = 453365", right: "\'salsa\'", confirmation: "That wasn't a variable -- it was just a string!", clue: "You might get some clues from this video:", video: "https://www.youtube.com/embed/G41G_PEWFjE", subject_id: 5)
 
+# AdminUser.create!(email: 'admin@example.com', password: 'password', password_confirmation: 'password')
