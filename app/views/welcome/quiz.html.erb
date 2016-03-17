@@ -1,6 +1,9 @@
 <div class="col-md-12">
   <h3 id="meter">
     nachometer:
+    <% if @subject.id == 1 %>
+    	<i>answer questions correctly to earn nachos!</i>
+    <% end %>
     <% @nachos.times do %>
       <%= image_tag "nachos2.png", class: "bounce" %>
     <% end %>
