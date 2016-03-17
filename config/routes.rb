@@ -1,22 +1,16 @@
 Rails.application.routes.draw do
 
-  devise_for :users
   root 'welcome#index'
 
   get 'go' => 'welcome#quiz'
 
   get 'about' => 'welcome#about'
 
-
   get 'winner' => 'winner#where_are_you'
 
   post 'alien_nachos' => 'winner#alien_nachos'
 
   get 'no_nachos' => 'winner#no_nachos'
-
-  resources :admin do
-  end
-
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
