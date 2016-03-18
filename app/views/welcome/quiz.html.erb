@@ -96,7 +96,7 @@
 	      	<br>
 	    		<p><%= @test.clue %></p>
 	    		<br>
-	    		<% if @test.video.include?("youtube") %>
+	    		<% if @test.video != nil && @test.video.include?("youtube") %>
 	    			<iframe width="560" height="315" src=<%= @test.video %> frameborder="0" allowfullscreen></iframe>
 	    		<% else %>
 	    			<%= image_tag "wrong.png", width: "100" %>
