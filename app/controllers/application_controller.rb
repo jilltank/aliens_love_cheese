@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   end
 
   def nacho_meter
-  	@nachos = 0
+  	@show_nachos = false
   end
 
 

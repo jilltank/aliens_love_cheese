@@ -1,9 +1,9 @@
 <div class="row">
-	<div class="col-md-6">
+	<div class="col-md-5 col-md-offset-1">
 		<div class="well">
 			<h1>Great Job!</h1>
 			<p>Do you want to see where we like to find nachos near you?</p>
-			<%= form_tag(alien_nachos_path) do %>
+			<%= form_tag(alien_nachos_path anchor: "main") do %>
 				<div class="form-group">
 					City: <br>
 					<%= text_field_tag :city %>
@@ -14,7 +14,7 @@
 				</div>
 				<br>
 				<div class="form-group">
-					<%= submit_tag "I'm here, where are you?", class: "btn btn-success" %>
+					<%= submit_tag "I'm here, where are you?", class: "btn btn-warning" %>
 				</div>
 			<% end %>
 		</div>
