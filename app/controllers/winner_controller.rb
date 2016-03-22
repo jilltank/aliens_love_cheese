@@ -17,15 +17,11 @@ include WinnerHelper
         @no_location = false
       end
     end
-    
+
     if @no_location
       @location = Location.create city: params[:city], state: params[:state]
       @location.save
     end
-    puts "^^^^^^^^^^^^^^^^^^"
-    puts "#{@location.latitude}, #{@location.longitude}"
-    puts "^^^^^^^^^^^^^^^^^^^"
-
 
   	@spaceships = Meteorite.where.not lat: nil 
 
