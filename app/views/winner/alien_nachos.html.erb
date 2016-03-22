@@ -1,19 +1,30 @@
 <div class="well">
 	<div class="row">
 		<div class="well center-it">
-			<h2><%= "#{@location.city}, #{@location.state}" %>: Where We Land and Where We Eat Nachos</h2>
+			<% if @nachos %>
+				<h2>Nachos Near <%= "#{@location.city}" %>: Where We Landed and Where We Ate Nachos</h2>
+			<% else %>
+				<h2>No Nachos Near <%= "#{@location.city}" %></h2>
+				<p>We couldn't find nachos near you, but here's where we landed to look!</p>
+			<% end %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-4">
 			<div class="center">
-				<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "alien.png", id: "strings", class: "img-responsive" %></a>
+				<% if @nachos %>
+					<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "alien.png", id: "strings", class: "img-responsive" %></a>
+				<% else %>
+					<br><br><br>
+					<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "wrong.png", id: "strings", class: "img-responsive" %></a>
+					<br><br><br>
+				<% end %>
 				<%= link_to "Check Somewhere Else", winner_path, class: "btn btn-warning center-block" %>
 				<br>
 			</div>
 		</div>
 		<div class="col-md-8">
-			<div id="map">
+			<div id="map" class="img-responsive">
 			</div>
 		</div>
 	</div>
@@ -28,7 +39,7 @@
 		function initialize () {
 
 			var mapOptions = {
-				center: {lat: <%= @nacho_force_one["latitude"] %>, lng: <%= @nacho_force_one["longitude"] %>},
+				center: {lat: <%= @nearby_ship.lat %>, lng: <%= @nearby_ship.long %>},
 				zoom: 8,
 				scrollwheel: false
 			};
@@ -39,10 +50,6 @@
 				url: "<%= asset_path 'spaceship2.png' %>",
 			}
 
-			var image2 = {
-				url: "<%= asset_path 'nachos3.png' %>",
-			}
-
 			var marker = new google.maps.Marker({
 				position: {lat: <%= @nearby_ship.lat %>, lng: <%= @nearby_ship.long %>},
 				map: map,
@@ -50,6 +57,19 @@
 				icon: image,
 				animation: google.maps.Animation.BOUNCE
 			});
+
+			var contentString = "<h3>Landing Site: <%= @nearby_ship.name %></h3><p>GPS coordinates: <%= @nearby_ship.lat %>, <%= @nearby_ship.long %></p>";
+
+			var infowindow = new google.maps.InfoWindow({content: contentString});
+
+			google.maps.event.addListener(marker, 'click', function() {
+				infowindow.open(map, marker);
+			});
+
+		<% if @nachos %>
+			var image2 = {
+				url: "<%= asset_path 'nachos3.png' %>",
+			}
 
 			var marker2 = new google.maps.Marker({
 				position: {lat: <%= @nacho_force_one["latitude"].to_f %>, lng: <%= @nacho_force_one["longitude"].to_f %>},
@@ -59,16 +79,16 @@
 				animation: google.maps.Animation.BOUNCE
 			});
 
-			var contentString = "<h3>Landing Site: <%= @nearby_ship.name %></h3><p>GPS coordinates: <%= @nearby_ship.lat %>, <%= @nearby_ship.long %></p>";
 			var contentString2 = "<h3><%= @nacho_force_one["name"] %></h3><p><%= @nacho_force_one["address"] %></p><p><%= @nacho_force_one["city"] %>, <%= @nacho_force_one["state"] %></p>";
-			var infowindow = new google.maps.InfoWindow({content: contentString});
+
 			var infowindow2 = new google.maps.InfoWindow({content: contentString2});
-			google.maps.event.addListener(marker, 'click', function() {
-				infowindow.open(map, marker);
-			});
+
 			google.maps.event.addListener(marker2, 'click', function() {
 				infowindow2.open(map, marker2);
 			});
+
+
+		<% end %>
 
 		}
 

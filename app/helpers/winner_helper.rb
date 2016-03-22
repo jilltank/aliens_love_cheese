@@ -72,9 +72,9 @@ end
     if nacho_bases.empty?
       nacho_bases = HTTParty.get("https://www.databaseofnachos.com/api/search_within?nelat=#{ne_lat+0.91}&nelng=#{ne_long+0.91}&swlat=#{sw_lat-0.91}&swlng=#{sw_long-0.91}&offset=0")
     end
-    if nacho_bases.empty?
-      redirect_to no_nachos_path
-    end
+    # if nacho_bases.empty?
+    #   redirect_to no_nachos_path
+    # end
   	nacho_bases
   end
 
