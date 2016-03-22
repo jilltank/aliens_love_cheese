@@ -2,7 +2,8 @@
 	<div class="row">
 		<div class="well center-it">
 			<% if @nachos %>
-				<h2>Nachos Near <%= "#{@location.city}" %>: Where We Landed and Where We Ate Nachos</h2>
+				<h2>Nachos Near <%= "#{@location.city}" %></h2>
+				<p>Where We Landed and Where We Ate Nachos</p>
 			<% else %>
 				<h2>No Nachos Near <%= "#{@location.city}" %></h2>
 				<p>We couldn't find nachos near you, but here's where we landed to look!</p>
@@ -40,7 +41,7 @@
 
 			var mapOptions = {
 				center: {lat: <%= @nearby_ship.lat %>, lng: <%= @nearby_ship.long %>},
-				zoom: 8,
+				zoom: 12,
 				scrollwheel: false
 			};
 
@@ -48,10 +49,12 @@
 
 			var image = {
 				url: "<%= asset_path 'spaceship2.png' %>",
-			}
+			};
+
+			var ship = new google.maps.LatLng(<%= @nearby_ship.lat %>, <%= @nearby_ship.long %>);
 
 			var marker = new google.maps.Marker({
-				position: {lat: <%= @nearby_ship.lat %>, lng: <%= @nearby_ship.long %>},
+				position: ship,
 				map: map,
 				title: "<%= @nearby_ship.name %>",
 				icon: image,
@@ -71,8 +74,10 @@
 				url: "<%= asset_path 'nachos3.png' %>",
 			}
 
+			var nacho_spot = new google.maps.LatLng(<%= @nacho_force_one["latitude"].to_f %>, <%= @nacho_force_one["longitude"].to_f %>);
+
 			var marker2 = new google.maps.Marker({
-				position: {lat: <%= @nacho_force_one["latitude"].to_f %>, lng: <%= @nacho_force_one["longitude"].to_f %>},
+				position: nacho_spot,
 				map: map,
 				title: "<%= @nacho_force_one["name"] %>",
 				icon: image2,
@@ -87,6 +92,10 @@
 				infowindow2.open(map, marker2);
 			});
 
+			var bounds = new google.maps.LatLngBounds();
+    	bounds.extend(ship);
+    	bounds.extend(nacho_spot);
+    	map.fitBounds(bounds);
 
 		<% end %>
 
