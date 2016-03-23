@@ -29,6 +29,8 @@ gem 'geocoder'
 gem 'httparty'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
+gem 'rollbar', '~> 2.8.3'
+gem 'oj', '~> 2.12.14'
 
 group :production do
 	gem 'pg'
