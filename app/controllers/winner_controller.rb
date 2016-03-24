@@ -9,19 +9,7 @@ include WinnerHelper
 
   def alien_nachos
 
-    @no_location = true
-
-    Location.all.each do |l|
-      if l.city.downcase == params[:city].downcase && l.state.downcase == params[:state].downcase && l.latitude != nil 
-        @location = l
-        @no_location = false
-      end
-    end
-
-    if @no_location
-      @location = Location.create city: params[:city], state: params[:state]
-      @location.save
-    end
+    @location = locate
 
   	@spaceships = Meteorite.where.not lat: nil 
 

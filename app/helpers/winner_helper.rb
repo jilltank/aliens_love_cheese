@@ -1,5 +1,22 @@
 module WinnerHelper
 
+#finds the users location using geocoder. Also checks resources to see if the locations has already been geocoded
+
+def locate
+  no_location = true
+	Location.all.each do |l|
+	  if l.city.downcase == params[:city].downcase && l.state.downcase == params[:state].downcase && l.latitude != nil 
+	    @location = l
+	    no_location = false
+	  end
+	end
+	if no_location
+	  @location = Location.create city: params[:city], state: params[:state]
+	  @location.save
+	end
+	@location
+end
+
 # generates an array of 'ships' within 5 degrees of the user's location. if that search yields no ships, will generate an array of ships within 10 degrees of the user's location. Then it will use nearest to whittle that down to one and will return the single nearest ship.
 
 	def closest_ship user, meteorite, nearby
@@ -24,7 +41,7 @@ module WinnerHelper
 			end
 			foo.sort!
 			super_near = foo[0]
-			return nearby[super_near[1]]
+			nearby[super_near[1]]
 		end
 	end
 
