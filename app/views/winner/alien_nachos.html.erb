@@ -1,24 +1,24 @@
 <div class="well">
 	<div class="row">
 		<div class="well center-it">
-			<% if @nachos %>
-				<h2>Nachos Near <%= "#{@location.city}" %></h2>
-				<p>Where We Landed and Where We Ate Nachos</p>
-			<% else %>
-				<h2>No Nachos Near <%= "#{@location.city}" %></h2>
+			<% if @nacho_force_one.empty? %>
+				<h2>No Nachos Near <%= "#{@user_location.city}" %></h2>
 				<p>We couldn't find nachos near you, but here's where we landed to look!</p>
+			<% else %>
+				<h2>Nachos Near <%= "#{@user_location.city}" %></h2>
+				<p>Where We Landed and Where We Ate Nachos</p>
 			<% end %>
 		</div>
 	</div>
 	<div class="row">
 		<div class="col-md-4">
 			<div class="center">
-				<% if @nachos %>
-					<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "alien.png", id: "strings", class: "img-responsive" %></a>
-				<% else %>
+				<% if @nacho_force_one.empty? %>
 					<br><br><br>
 					<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "wrong.png", id: "strings", class: "img-responsive" %></a>
 					<br><br><br>
+				<% else %>
+					<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "alien.png", id: "strings", class: "img-responsive" %></a>
 				<% end %>
 				<%= link_to "Check Somewhere Else", winner_path, class: "btn btn-warning center-block" %>
 				<br>
@@ -69,7 +69,7 @@
 				infowindow.open(map, marker);
 			});
 
-		<% if @nachos %>
+		<% if @nacho_force_one.empty? != true %>
 			var image2 = {
 				url: "<%= asset_path 'nachos3.png' %>",
 			}
