@@ -3,7 +3,7 @@ class NearestShip
 	def initialize(user_location)
 		@user_location = user_location
 		@nearby_ship_array = []
-		@meteorites = Meteorite.where.not lat: nil
+		@meteorites = Meteorite.where.not(lat: nil)
 	end
 
 	def deg_check(num_of_degrees)

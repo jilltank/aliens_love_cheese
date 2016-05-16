@@ -6,22 +6,9 @@ class WinnerController < ApplicationController
   end
 
   def alien_nachos
-
-   no_location = true
-    Location.all.each do |l|
-      if l.city.downcase == params[:city].downcase && l.state.downcase == params[:state].downcase && l.latitude != nil 
-        @user_location = l
-        no_location = false
-      end
-    end
-    if no_location
-      @user_location = Location.new(city: params[:city], state: params[:state])
-      @user_location.save
-    end
- 
+    @user_location = Location.find_or_create_by(city: params[:city].titleize, state: params[:state])
     @nearby_ship = NearestShip.new(@user_location).calculate
     @nacho_force_one = NearestNachos.new(@nearby_ship).calculate
-
   end
 
 end
