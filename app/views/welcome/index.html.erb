@@ -6,15 +6,18 @@
 				<p>My name is Elsif. I come from outer space, but sometimes my friends
 					and I like to visit earth because we love Earthling nachos! Would you
 					like to see our favorite nacho spot near you?</p>
-				<p>I will tell you, but first you have to pass a test and learn Ruby. Ruby is a programming language. That means you can use it to talk to your computer. I use it with the computer in my spaceship.</p>
+				<p>I will tell you, but first you have to pass a test and learn Ruby.
+					Ruby is a programming language. That means you can use it to talk to
+					your computer. I use it with the computer in my spaceship.</p>
 				<h3>Are you ready to learn Ruby and find nachos?!</h3>
-				<br>
-				<%= link_to "Yes, Let's Go!", go_path(id: 1, :anchor => "main"), class: "btn btn-warning" %>
+				<p><%= link_to "Yes, Let's Go!", go_path(id: 1, :anchor => "main"), class: "btn btn-warning" %></p>
 			</div>
 		</div>
 		<div class="col-md-4">
 			<div class="well">
-				<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>"><%= image_tag "alien.png", id: "alien", class: "img-responsive" %></a>
+				<a data-toggle="popover" title="Fun Fact" data-content="<%= @fun_facts[0] %>">
+					<%= image_tag "alien.png", id: "alien", class: "img-responsive" %>
+				</a>
 			</div>
 		</div>
 	</div>
