@@ -10,7 +10,13 @@
 					Ruby is a programming language. That means you can use it to talk to
 					your computer. I use it with the computer in my spaceship.</p>
 				<h3>Are you ready to learn Ruby and find nachos?!</h3>
-				<p><%= link_to "Yes, Let's Go!", go_path(id: 1, :anchor => "main"), class: "btn btn-warning" %></p>
+				<p>
+					<%=
+						link_to "Yes, Let's Go!", 
+											go_path(id: 1, :anchor => "main"),
+											class: "btn btn-warning"
+					%>
+				</p>
 			</div>
 		</div>
 		<div class="col-md-4">
